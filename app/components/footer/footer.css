@@ -47,3 +47,21 @@
   width: 50%;
   max-width: 750px;
 }
+
+@media (max-width: 321px) {
+  .footer {
+    flex-direction: column-reverse;
+    padding: 15px;
+  }
+
+  .footer>div.main,
+  .footer>div {
+    width: 100%;
+    max-width: unset;
+    margin: 0;
+  }
+
+  .footer>div.main {
+    margin-top: 15px;
+  }
+}

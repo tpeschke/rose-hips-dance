@@ -48,3 +48,37 @@
     margin: 0 0 0 750px;
   }
 }
+
+@media (max-width: 321px) {
+  .header {
+    background: var(--prussianBlue);
+    padding: 5px 10px;
+  }
+
+  .header h1 {
+    font-size: 7vw
+  }
+
+  .header ul {
+    display: none;
+    height: 100vh;
+  }
+
+  .header ul.open {
+    display: inherit;
+    position: absolute;
+    top: 37px;
+    left: 0;
+    width: 100vw;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--burgundy);
+  }
+
+  .header ul li {
+    padding: 5px 0;
+    margin: 3px 10px;
+  }
+}

@@ -3,6 +3,8 @@ import "./header.css";
 import { mhiora, lemonade } from "../../utilities/fonts";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import HamburgerMenuIcon from "./component/hamburgerMenuIcon";
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [headerColorClass, setHeaderColorClass] = useState("");
@@ -19,7 +21,6 @@ export default function Header() {
 
     if (document) {
       setStoryBannerY(document.getElementById("story-banner")?.offsetHeight);
-      console.log(document.getElementById("begin-your-journey")?.scrollTop);
       setBeginYourJourneyY(
         document.getElementById("begin-your-journey")?.offsetHeight
       );
@@ -43,6 +44,13 @@ export default function Header() {
     }
   };
 
+  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
+
   return (
     <div id="header" className={`header ${headerColorClass}`}>
       <Link href="/">
@@ -50,7 +58,10 @@ export default function Header() {
           Rose Hips <span>Dance</span>
         </h1>
       </Link>
-      <ul className={`${lemonade.className} antialiased`}>
+
+      <HamburgerMenuIcon isOpen={isOpen} setIsOpen={setIsOpen} />
+
+      <ul className={`${lemonade.className} antialiased ${isOpen && 'open'}`}>
         <li>
           <Link href="/classes">Classes</Link>
         </li>
@@ -59,9 +70,8 @@ export default function Header() {
         <li>
           <Link href="/classes">
             <button
-              className={`${lemonade.className} antialiased ${
-                headerColorClass === "scrolled-header-blue" ? "gold" : "blue"
-              }`}
+              className={`${lemonade.className} antialiased ${headerColorClass === "scrolled-header-blue" || isOpen ? "gold" : "blue"
+                }`}
             >
               Book a Class
             </button>
