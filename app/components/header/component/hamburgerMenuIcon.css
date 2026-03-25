@@ -2,7 +2,7 @@
     display: none;
     margin-left: auto;
     width: 30px;
-    height: 10px;
+    height: 21px;
     position: relative;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -66,7 +66,7 @@
     transform: rotate(-135deg);
 }
 
-@media (max-width: 321px) {
+@media (max-width: 566px) {
     #nav-icon {
         display: inherit;
     }

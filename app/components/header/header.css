@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  align-items: center;
   padding: 10px;
   position: fixed;
   background: transparent;
@@ -49,7 +50,7 @@
   }
 }
 
-@media (max-width: 321px) {
+@media (max-width: 566px) {
   .header {
     background: var(--prussianBlue);
     padding: 5px 10px;
@@ -67,7 +68,7 @@
   .header ul.open {
     display: inherit;
     position: absolute;
-    top: 37px;
+    top: 46px;
     left: 0;
     width: 100vw;
     padding: 10px 0;
