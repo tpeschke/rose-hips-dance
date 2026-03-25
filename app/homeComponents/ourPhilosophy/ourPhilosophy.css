@@ -1,17 +1,20 @@
 .story-banner-shell {
   height: 100vh;
+  max-height: 750px;
   width: 100vw;
+  display: flex;
+  justify-content: center;
   position: relative;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 49, 83, 1) 80%,
-    rgba(94, 7, 21, 1) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(0, 49, 83, 1) 80%,
+      rgba(94, 7, 21, 1) 100%);
   overflow: hidden;
 }
 
 .story-banner {
   height: 100vh;
+  max-height: 750px;
+  max-width: 1440px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -30,25 +33,28 @@
   padding-right: 35px;
 }
 
-.story-banner > div {
+.story-banner>div {
   margin-top: 35px;
   width: calc(100% - 450px);
   position: relative;
   z-index: 1;
 }
 
-.story-banner > div:first-child {
+.story-banner>div:first-child {
   width: 550px;
   height: 450px;
 }
 
-.story-banner > div:last-child {
-  height: 350px;
+.story-banner>div:last-child {
   padding: 0 35px;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
+}
+
+.story-banner>div:last-child>* {
+  margin-bottom: 15px;
 }
 
 .story-banner .instructor-image {
@@ -69,4 +75,7 @@
   width: 250px;
   height: 250px;
   border: 6px solid #c9941871;
+}
+
+@media (min-width: 1441px) {
 }

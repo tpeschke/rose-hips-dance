@@ -1,7 +1,7 @@
-import "./storyBanner.css";
+import "./ourPhilosophy.css";
 import { mhiora, lemonade } from "../../utilities/fonts";
 
-export default function StoryBanner() {
+export default function OurPhilosophy() {
   return (
     <div className="story-banner-shell">
       <div id="story-banner" className="story-banner">
@@ -34,6 +34,4 @@ export default function StoryBanner() {
       </div>
     </div>
   );
-
-  // bottom has the scrolling marquee
 }

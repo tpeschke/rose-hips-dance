@@ -2,12 +2,15 @@
   position: relative;
   overflow: hidden;
   padding: 50px 0 35px;
+  min-height: 100vh;
   background: var(--prussianBlue);
+  display: flex;
+  justify-content: space-around;
 }
 
 .registration .class-registration-card {
   color: var(--white);
-  padding: 15px 35px;
+  padding: 35px;
 }
 
 .registration .class-registration-card h1 {
@@ -21,7 +24,7 @@
   margin: 5px 0;
 }
 
-.registration .class-registration-card h2 > strong {
+.registration .class-registration-card h2>strong {
   color: var(--gold);
 }
 
@@ -45,6 +48,7 @@
 .registration .inputs-shell {
   position: relative;
   z-index: 2;
+  max-width: 1250px;
 }
 
 .registration .class-registration-card input,

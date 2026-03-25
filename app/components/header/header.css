@@ -38,3 +38,13 @@
 .header ul li {
   margin-left: 15px;
 }
+
+@media (min-width: 1441px) {
+  .header {
+    justify-content: center;
+  }
+
+  .header ul {
+    margin: 0 0 0 750px;
+  }
+}

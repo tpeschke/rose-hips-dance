@@ -3,20 +3,22 @@
   width: 100vw;
   background: var(--burgundy);
   position: relative;
+  display: flex;
+  justify-content: center;
+  max-height: 1000px;
 }
 
 .main-banner .columns {
   height: 100%;
-  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   position: absolute;
   top: 0;
   z-index: 1;
 }
 
-.main-banner .columns > div {
+.main-banner .columns>div {
   padding: 35px;
   width: 45%;
   text-align: center;
@@ -27,6 +29,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 0
 }
 
 .main-banner .columns h1 {
@@ -34,7 +37,7 @@
   font-size: 45px;
 }
 
-.main-banner .columns > div > h1 {
+.main-banner .columns>div>h1 {
   margin-bottom: -15px;
 }
 
@@ -56,4 +59,14 @@
   align-items: center;
   overflow: hidden;
   border: 6px solid #c9941871;
+}
+
+@media (min-width: 1441px) {
+  .main-banner .columns {
+    flex-direction: column-reverse;
+  }
+
+  .main-banner .portrait {
+    margin-bottom: 35px;
+  }
 }

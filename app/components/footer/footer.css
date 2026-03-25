@@ -1,7 +1,7 @@
 .footer {
-  background: var(--darkburgundy);
+  background: var(--darkBurgundy);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 30px 50px 15px;
 }
 
@@ -23,7 +23,7 @@
   margin-top: 15px;
 }
 
-.footer > div:not(.main) p {
+.footer>div:not(.main) p {
   color: var(--lightGray);
   font-size: 14px;
   letter-spacing: 1px;
@@ -36,12 +36,14 @@
   margin-top: 15px;
 }
 
-.footer > div {
-  min-width: 18%;
+.footer>div {
+  width: 25%;
+  max-width: 250px;
   margin-right: 15px;
   z-index: 99;
 }
 
-.footer > div.main {
-  min-width: 40%;
+.footer>div.main {
+  width: 50%;
+  max-width: 750px;
 }

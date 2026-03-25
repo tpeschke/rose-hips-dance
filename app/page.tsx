@@ -5,14 +5,14 @@ import FindYourClass from "./homeComponents/findYourClass/findYourClass";
 import MainBanner from "./homeComponents/mainBanner/mainBanner";
 import Marquee from "./homeComponents/marquee/marquee";
 import RotatingSun from "./homeComponents/rotatingSun/rotatingSun";
-import StoryBanner from "./homeComponents/storyBanner/storyBanner";
+import OurPhilosophy from "./homeComponents/ourPhilosophy/ourPhilosophy";
 
 export default function Home() {
   return (
     <div className="home-page">
       <RotatingSun />
       <MainBanner />
-      <StoryBanner />
+      <OurPhilosophy />
       <Marquee />
       <FindYourClass />
       <BeginYourJourney />

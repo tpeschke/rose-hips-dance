@@ -26,12 +26,15 @@
     opacity: 0;
     transform: translateY(150vh) rotate(0deg);
   }
+
   8% {
     opacity: 0.35;
   }
+
   92% {
     opacity: 0.2;
   }
+
   100% {
     opacity: 0;
     transform: translateY(-25vh) rotate(540deg);
@@ -42,11 +45,9 @@
   padding: 150px 0 75px;
   display: flex;
   justify-content: center;
-  background: linear-gradient(
-    0deg,
-    rgba(94, 7, 21, 1) 80%,
-    rgba(0, 49, 83, 1) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(94, 7, 21, 1) 80%,
+      rgba(0, 49, 83, 1) 100%);
 }
 
 .begin-your-journey h1 {
@@ -54,8 +55,9 @@
   text-align: center;
 }
 
-.begin-your-journey > div {
+.begin-your-journey>div {
   width: 35%;
+  max-width: 435px;
   padding: 0 35px;
   z-index: 2;
 }

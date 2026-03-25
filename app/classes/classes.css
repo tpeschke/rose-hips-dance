@@ -25,6 +25,7 @@
   display: flex;
   justify-content: space-evenly;
   width: 50vw;
+  max-width: 500px;
 }
 
 .classes .filter-buttons button.on {
@@ -39,8 +40,10 @@
 
 .class-card {
   padding: 35px;
-  min-height: 33vh;
+  height: 33vh;
+  max-height: 410px;
   display: flex;
+  justify-content: center;
   background: var(--burgundy);
   z-index: 2;
 }
@@ -59,22 +62,22 @@
 
 .spacer {
   padding: 7px 0;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 49, 83, 1) 0%,
-    rgba(94, 7, 21, 1) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(0, 49, 83, 1) 0%,
+      rgba(94, 7, 21, 1) 100%);
 }
 
-.class-card > div {
+.class-card>div {
   margin: 0 15px;
   z-index: 2;
+  max-width: 800px;
 }
 
 .image-shell {
   position: relative;
   border: 6px solid #ffffffb9;
   position: relative;
+  height: 400px;
 }
 
 .image-shell h1 {

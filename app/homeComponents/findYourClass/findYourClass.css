@@ -38,7 +38,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 860px;
+  max-width: 1440px;
   margin: 15px auto;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .find-your-class .class-catalog-squares .class-square:hover {
-  background: var(--darkburgundy);
+  background: var(--darkBurgundy);
   border: 1px solid rgba(201, 148, 24, 0.5);
   transform: translate(0, -3px);
 }
