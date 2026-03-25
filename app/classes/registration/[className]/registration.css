@@ -1,0 +1,66 @@
+.registration {
+  position: relative;
+  overflow: hidden;
+  padding: 50px 0 35px;
+  background: var(--prussianBlue);
+}
+
+.registration .class-registration-card {
+  color: var(--white);
+  padding: 15px 35px;
+}
+
+.registration .class-registration-card h1 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.registration .class-registration-card h2 {
+  font-size: 18px;
+  color: var(--white);
+  margin: 5px 0;
+}
+
+.registration .class-registration-card h2 > strong {
+  color: var(--gold);
+}
+
+.registration ul {
+  padding: 0;
+}
+
+.registration ul button {
+  padding: 5px 15px;
+}
+
+.registration .class-registration-card span {
+  display: flex;
+}
+
+.registration .class-registration-card span label {
+  margin-left: 15px;
+  color: var(--lightGray);
+}
+
+.registration .inputs-shell {
+  position: relative;
+  z-index: 2;
+}
+
+.registration .class-registration-card input,
+.registration .class-registration-card textarea {
+  background: #00000025;
+  border: unset;
+  border-bottom: 1px solid var(--gold);
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+.registration .class-registration-card textarea {
+  width: 100%;
+}
+
+.registration .class-registration-card .disclaimer {
+  margin: 15px 0;
+  font-weight: unset;
+}

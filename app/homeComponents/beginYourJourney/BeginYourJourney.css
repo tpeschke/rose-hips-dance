@@ -1,0 +1,131 @@
+.begin-your-journey-shell {
+  position: relative;
+}
+
+.petal-shell {
+  position: absolute;
+  bottom: 0;
+  width: calc(100vw - 15px);
+  height: 150vh;
+  z-index: -50;
+  z-index: 1;
+}
+
+.petal {
+  position: absolute;
+  width: 7px;
+  height: 12px;
+  background: var(--gold);
+  border-radius: 50% 0 50% 0;
+  opacity: 0;
+  animation: floatPetal linear infinite;
+}
+
+@keyframes floatPetal {
+  0% {
+    opacity: 0;
+    transform: translateY(150vh) rotate(0deg);
+  }
+  8% {
+    opacity: 0.35;
+  }
+  92% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-25vh) rotate(540deg);
+  }
+}
+
+.begin-your-journey {
+  padding: 150px 0 75px;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+    0deg,
+    rgba(94, 7, 21, 1) 80%,
+    rgba(0, 49, 83, 1) 100%
+  );
+}
+
+.begin-your-journey h1 {
+  color: var(--gold);
+  text-align: center;
+}
+
+.begin-your-journey > div {
+  width: 35%;
+  padding: 0 35px;
+  z-index: 2;
+}
+
+.begin-your-journey .cta-frame {
+  position: relative;
+  padding: 35px;
+  border: 1px solid rgba(201, 148, 24, 0.35);
+}
+
+.begin-your-journey .cta-frame::before {
+  content: "✦";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 0.5rem;
+  color: var(--gold);
+}
+
+.cta-frame::after {
+  content: "✦";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 0.5rem;
+  color: var(--gold);
+}
+
+.begin-your-journey .cta-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.5;
+}
+
+.begin-your-journey .cta-corner-tl {
+  top: 8px;
+  left: 8px;
+  border-width: 2px 0 0 2px;
+}
+
+.begin-your-journey .cta-corner-tr {
+  top: 8px;
+  right: 8px;
+  border-width: 2px 2px 0 0;
+}
+
+.begin-your-journey .cta-corner-bl {
+  bottom: 8px;
+  left: 8px;
+  border-width: 0 0 2px 2px;
+}
+
+.begin-your-journey .cta-corner-br {
+  bottom: 8px;
+  right: 8px;
+  border-width: 0 2px 2px 0;
+}
+
+.begin-your-journey .journey-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
+.begin-your-journey .journey-details .small {
+  font-size: 12px;
+}

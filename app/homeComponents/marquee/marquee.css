@@ -1,0 +1,28 @@
+.marquee-band {
+  padding: 15px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--gold);
+}
+
+.marquee-band .marquee-inner {
+  display: flex;
+  align-items: center;
+  animation: marquee 160s linear infinite;
+}
+
+.marquee-band .marquee-inner span {
+  font-size: 15px;
+  color: var(--dark);
+  letter-spacing: 1px;
+  padding: 0 15px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-500%);
+  }
+}

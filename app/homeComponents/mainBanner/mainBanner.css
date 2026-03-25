@@ -1,0 +1,59 @@
+.main-banner {
+  height: 100vh;
+  width: 100vw;
+  background: var(--burgundy);
+  position: relative;
+}
+
+.main-banner .columns {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.main-banner .columns > div {
+  padding: 35px;
+  width: 45%;
+  text-align: center;
+  min-height: 300px;
+}
+
+.main-banner .columns .welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-banner .columns h1 {
+  color: var(--white);
+  font-size: 45px;
+}
+
+.main-banner .columns > div > h1 {
+  margin-bottom: -15px;
+}
+
+.main-banner .columns h1 span {
+  color: var(--gold);
+}
+
+.main-banner .columns button:first-child {
+  margin-right: 35px;
+}
+
+.main-banner .columns .portrait {
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  height: 300px;
+  width: 190px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 6px solid #c9941871;
+}

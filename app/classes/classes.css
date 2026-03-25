@@ -1,0 +1,104 @@
+.classes {
+  position: relative;
+  overflow: hidden;
+  padding: 50px 0 0;
+  background: var(--burgundy);
+}
+
+.classes span.filter-header {
+  background: var(--gold);
+  padding: 10px 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.classes span.filter-header h2 {
+  margin: 0 15px;
+}
+
+.classes .filter-buttons {
+  margin: 15px auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50vw;
+}
+
+.classes .filter-buttons button.on {
+  border: 1px solid transparent;
+  color: var(--gold);
+}
+
+.classes .filter-buttons button.on:hover {
+  border: 1px solid var(--lightGold);
+  color: var(--lightGold);
+}
+
+.class-card {
+  padding: 35px;
+  min-height: 33vh;
+  display: flex;
+  background: var(--burgundy);
+  z-index: 2;
+}
+
+.class-card .nav-id {
+  position: absolute;
+  top: -100px;
+  width: 0;
+  height: 0;
+}
+
+.class-card.odd {
+  background: var(--prussianBlue);
+  flex-direction: row-reverse;
+}
+
+.spacer {
+  padding: 7px 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 49, 83, 1) 0%,
+    rgba(94, 7, 21, 1) 100%
+  );
+}
+
+.class-card > div {
+  margin: 0 15px;
+  z-index: 2;
+}
+
+.image-shell {
+  position: relative;
+  border: 6px solid #ffffffb9;
+  position: relative;
+}
+
+.image-shell h1 {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  background: #ffffffb9;
+}
+
+.image-shell div {
+  width: 400px;
+  height: 400px;
+  background: var(--prussianBlue);
+}
+
+.class-body {
+  color: var(--white);
+}
+
+.class-body p {
+  margin-bottom: 15px;
+}
+
+.class-body strong {
+  color: var(--gold);
+}

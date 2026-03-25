@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  padding: 10px;
+  position: fixed;
+  background: transparent;
+  width: calc(100vw - 20px);
+  z-index: 99;
+  color: var(--white);
+  transition: 0.6s;
+}
+
+.header.scrolled-header-blue {
+  background: var(--prussianBlue);
+}
+
+.header.scrolled-header-red {
+  background: var(--burgundy);
+}
+
+.header h1 {
+  word-spacing: -6px;
+}
+
+.header h1 span {
+  color: var(--gold);
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  color: var(--lightGray);
+  font-weight: bold;
+}
+
+.header ul li {
+  margin-left: 15px;
+}

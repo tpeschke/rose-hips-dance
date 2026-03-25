@@ -1,0 +1,10 @@
+.background-images {
+  height: 100%;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  opacity: 0.035;
+  background-image: url("../../../public/homeImages/background.png");
+  background-size: 1000px;
+  z-index: 0;
+}

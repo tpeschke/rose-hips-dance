@@ -1,0 +1,76 @@
+.find-your-class {
+  padding: 50px 0;
+  background: var(--prussianBlue);
+}
+
+.find-your-class h1 {
+  color: var(--gold);
+}
+
+.find-your-class h2 {
+  color: var(--white);
+  margin-bottom: 15px;
+}
+
+.find-your-class button.full-transparent {
+  background: transparent;
+  color: var(--lightGold);
+  padding: 0;
+}
+
+.find-your-class .title {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.find-your-class .title h1 span {
+  color: var(--white);
+}
+
+.find-your-class .subtitle {
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+
+.find-your-class .class-catalog-squares {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 860px;
+  margin: 15px auto;
+}
+
+.find-your-class .class-catalog-squares .class-square {
+  width: 275px;
+  margin: 3px;
+  padding: 35px;
+  background: var(--burgundy);
+  cursor: pointer;
+  transition: 0.6s;
+  position: relative;
+  border: 1px solid rgba(201, 148, 24, 0.2);
+  z-index: 2;
+}
+
+.find-your-class .class-square::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--burgundy),
+    var(--gold),
+    var(--burgundy)
+  );
+}
+
+.find-your-class .class-catalog-squares .class-square:hover {
+  background: var(--darkburgundy);
+  border: 1px solid rgba(201, 148, 24, 0.5);
+  transform: translate(0, -3px);
+}
