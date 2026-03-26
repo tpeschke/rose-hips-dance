@@ -1,7 +1,7 @@
 "use client";
 import "./registration.css";
 import Link from "next/link";
-import { lemonade } from "../../../utilities/fonts";
+import { mhiora, lemonade } from "../../../utilities/fonts";
 import { useEffect, useState } from "react";
 import classInfo from "../../../utilities/classInfo";
 import BackgroundImages from "@/app/components/backgroundImages/backgroundImages";
@@ -73,7 +73,7 @@ export default function Registration({
     <div className="registration">
       <BackgroundImages />
       <div className="class-registration-card">
-        <h1>Class Registration</h1>
+        <h1 className={`${mhiora.className} antialiased`}>Class Registration</h1>
         <p className="subtitle">
           Completing this form will register you as a student at Rose Hips
           Dance.
@@ -176,7 +176,7 @@ export default function Registration({
             lost, or stolen.
           </p>
 
-          <span>
+          <span className="agreement">
             <input
               onChange={(_) => setHasAgreed(!hasAgreed)}
               type="checkbox"

@@ -38,6 +38,7 @@
 
 .registration .class-registration-card span {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .registration .class-registration-card span label {
@@ -67,4 +68,34 @@
 .registration .class-registration-card .disclaimer {
   margin: 15px 0;
   font-weight: unset;
+}
+
+@media (max-width: 769px) {
+  .registration {
+    padding-bottom: 0px;
+  }
+
+  .registration .class-registration-card {
+    padding: 5px 15px
+  }
+
+    .registration .class-registration-card input,
+  .registration .class-registration-card textarea {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .registration .class-registration-card .inputs-shell span.agreement input {
+    width: unset;
+  }
+
+  .registration .class-registration-card .inputs-shell span:not(.agreement) label {
+    margin: 0 0 5px
+  }
+}
+
+@media (max-width: 376px) {
+  .registration button {
+    margin: 5px 0;
+  }
 }
