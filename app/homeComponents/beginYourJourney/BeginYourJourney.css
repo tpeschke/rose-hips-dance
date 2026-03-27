@@ -124,10 +124,30 @@
 .begin-your-journey .journey-details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: space-between;
+}
+
+.begin-your-journey .journey-details>* {
+  margin: 5px 0
 }
 
 .begin-your-journey .journey-details .small {
   font-size: 12px;
+}
+
+@media (max-width: 426px) {
+  .begin-your-journey {
+    flex-direction: column;
+    align-items: center;
+    padding: 75px 0 25px;
+  }
+
+  .begin-your-journey>div {
+    width: 90vw;
+    max-width: unset;
+    padding: 10px 5px
+  }
+
+  .begin-your-journey .journey-details>* {
+    margin: 5px 0
+  }
 }
