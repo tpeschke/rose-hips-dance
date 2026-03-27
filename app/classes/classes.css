@@ -40,8 +40,6 @@
 
 .class-card {
   padding: 35px;
-  height: 33vh;
-  max-height: 410px;
   display: flex;
   justify-content: center;
   background: var(--burgundy);
@@ -104,4 +102,42 @@
 
 .class-body strong {
   color: var(--gold);
+}
+
+@media (max-width: 426px) {
+  .classes .filter-buttons {
+    width: 100vw;
+  }
+
+  .class-card,
+  .class-card.odd {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .class-card>div:last-child {
+    padding: 15px 0;
+  }
+
+  .class-card>div.image-shell {
+    border: unset;
+    margin: 0;
+  }
+
+  .image-shell h1 {
+    font-size: 8vw;
+    background: #ffffff;
+  }
+
+  .spacer {
+    display: none;
+  }
+}
+
+
+@media (max-width: 321px) {
+  .classes .filter-buttons {
+    margin-top: 0;
+  }
 }
