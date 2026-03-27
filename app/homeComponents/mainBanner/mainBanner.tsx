@@ -17,7 +17,7 @@ export default function MainBanner() {
             Where ancient Middle Eastern dance meets modern healing; gently
             restoring your body, your confidence, and your deepest joy.
           </p>
-          <div>
+          <div className="class-buttons">
             <Link href="/classes">
               <button className={`${lemonade.className} antialiased blue`}>
                 Begin Your Journey

@@ -70,3 +70,28 @@
     margin-bottom: 35px;
   }
 }
+
+@media (max-width: 426px) {
+  .main-banner .columns {
+    flex-direction: column-reverse;
+    margin-top: 50px;
+  }
+
+  .main-banner .portrait {
+    margin-bottom: 35px;
+  }
+
+  .main-banner .columns>div {
+    width: unset;
+  }
+
+  .main-banner .columns>div>h1 {
+    margin-bottom: unset;
+  }
+
+  .main-banner .columns .class-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+  }
+}
