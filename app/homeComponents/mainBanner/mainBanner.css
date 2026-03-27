@@ -72,6 +72,10 @@
 }
 
 @media (max-width: 426px) {
+  .main-banner {
+    max-height: unset;
+  }
+
   .main-banner .columns {
     flex-direction: column-reverse;
     margin-top: 50px;

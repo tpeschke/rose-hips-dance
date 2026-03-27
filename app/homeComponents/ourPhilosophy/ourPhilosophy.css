@@ -77,5 +77,34 @@
   border: 6px solid #c9941871;
 }
 
-@media (min-width: 1441px) {
+@media (max-width: 426px) {
+  .story-banner-shell {
+    height: unset;
+    max-height: unset;
+    padding-top: 125px;
+  }
+
+  .story-banner {
+    height: unset;
+    max-height: unset;
+    flex-direction: column;
+  }
+
+  .story-banner>div:first-child {
+    width: 100vw;
+    display: flex;
+  }
+
+  .story-banner .instructor-image {
+    position: unset;
+  }
+
+  .story-banner .studio-image {
+    right: 0;
+  }
+
+  .story-banner>div:last-child {
+    width: 90vw;
+    padding: 0;
+  }
 }
