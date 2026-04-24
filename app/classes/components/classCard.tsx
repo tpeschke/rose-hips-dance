@@ -8,12 +8,13 @@ interface Props {
     skillLevel: string;
     body: string[];
     prereqs: string[];
+    cost: number
   };
   isOdd: Boolean;
 }
 
 export default function ClassCard({ classDetails, isOdd }: Props) {
-  const { title, skillLevel, body, prereqs } = classDetails;
+  const { title, skillLevel, body, prereqs, cost } = classDetails;
 
   function formatPrereqs(prereqs: string[]) {
     if (prereqs.length === 0) return "None";
@@ -49,6 +50,12 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
             Prerequisite:{" "}
           </strong>{" "}
           {formatPrereqs(prereqs)}
+        </p>
+        <p>
+          <strong className={`${mhiora.className} antialiased`}>
+            Cost:{" "}
+          </strong>{" "}
+          ${cost}
         </p>
         <Link href={`/classes/registration/${title}`}>
           <button className={`${lemonade.className} antialiased transparent`}>

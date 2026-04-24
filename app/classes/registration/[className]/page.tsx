@@ -6,13 +6,19 @@ import { useEffect, useState } from "react";
 import classInfo from "../../../utilities/classInfo";
 import BackgroundImages from "@/app/components/backgroundImages/backgroundImages";
 import axios from "axios";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+
+interface ClassInterface {
+  title: string,
+  cost: number
+}
 
 export default function Registration({
   params,
 }: {
   params: Promise<{ className: string }>;
 }) {
-  const [firstName, setFirstName] = useState<string | null>();
+  const [firstName, setFirstName] = useState<string | null>('Trent');
   const [secondName, setSecondName] = useState<string | null>('Peschke');
 
   const [phoneNumber, setPhoneNumber] = useState<string | null>('408-706-4300');
@@ -28,23 +34,23 @@ export default function Registration({
   const [email, setEmail] = useState<string | null>('mr.peschke@gmail.com');
   const [address, setAddress] = useState<string | null>('123 placeholder street');
 
-  const [classes, setClasses] = useState<string[]>([]);
+  const [classes, setClasses] = useState<ClassInterface[]>([]);
 
   const classSelectOptions = [
     ...classInfo.inPerson,
     ...classInfo.online,
     ...classInfo.oneOnOne,
   ].filter((classOption) => {
-    return classes.indexOf(classOption.title) === -1;
+    return classes.findIndex(option => option.title === classOption.title) === -1;
   });
 
-  const [selectedClass, setSelectedClass] = useState<string | null>(null);
+  const [selectedClass, setSelectedClass] = useState<ClassInterface | null>(null);
 
   const addSelectedClass = () => {
     if (selectedClass) {
       setClasses([...classes, selectedClass]);
     } else {
-      setClasses([...classes, classSelectOptions[0].title]);
+      setClasses([...classes, { title: classSelectOptions[0].title, cost: classSelectOptions[0].cost }]);
     }
     setSelectedClass(null);
   };
@@ -65,16 +71,35 @@ export default function Registration({
   useEffect(() => {
     params.then(({ className }) => {
       if (className && className !== "no-class") {
-        setClasses([decodeURI(className)]);
+        const decodedClassName = decodeURI(className)
+        const classIndex = classSelectOptions.findIndex(option => option.title === decodedClassName)
+
+        if (classIndex > -1) {
+          const { title, cost } = classSelectOptions[classIndex]
+          setClasses([{ title, cost }]);
+        }
       }
     });
   }, [params]);
 
   const submitRegistration = async () => {
-    const { data } = await axios.post('/api/register', {
-      firstName, secondName, phoneNumber, email, address, classes, hasAgreed, recommendation
-    })
-    console.log(data)
+    try {
+      const { status } = await axios.post('/api/register', {
+        firstName, secondName, phoneNumber, email, address, classes, hasAgreed, recommendation,
+        hasPaid: false,
+        amount: classes.reduce((currentValue, {cost}) => currentValue + cost, 0)
+      })
+
+      switch (status) {
+        case 201:
+          toast.success("You're Registered!")
+          break;
+        default:
+          toast.info(`Status: ${status}`)
+      }
+    } catch (_e) {
+      toast.error("Missing Information")
+    }
   }
 
   return (
@@ -133,26 +158,38 @@ export default function Registration({
           </h2>
           <ul>
             {classes.map((className) => (
-              <li key={className}>
+              <li key={className.title}>
                 <button
                   onClick={(_) =>
                     setClasses(classes.filter((title) => title !== className))
                   }
-                  className={`${lemonade.className} full-transparent`}
+                  className={`${lemonade.className} full-transparent delete`}
                 >
-                  {className}
+                  {className.title} (${className.cost})
+                  <span>X</span>
                 </button>
               </li>
             ))}
+            <li>
+              <span className="total-shell">
+                Total: ${classes.reduce((currentValue, {cost}) => currentValue + cost, 0)}
+              </span>
+            </li>
           </ul>
           {classSelectOptions.length > 0 && (
             <div>
               <select
-                onChange={(event) => setSelectedClass(event.target.value)}
+                onChange={(event) => {
+                  const classOptionIndex = classSelectOptions.findIndex(option => option.title === event.target.value)
+                  if (classOptionIndex > -1) {
+                    setSelectedClass(classSelectOptions[classOptionIndex])
+                  }
+                }}
               >
-                {classSelectOptions.map(({ title }) => (
-                  <option key={title}>{title}</option>
-                ))}
+                {classSelectOptions.map((classOption) => {
+                  const { title, cost } = classOption
+                  return <option key={title} value={title}>{title} (${cost})</option>
+                })}
               </select>
               <button
                 onClick={addSelectedClass}
@@ -195,7 +232,7 @@ export default function Registration({
 
           <br />
           <button
-            // disabled={!canSubmit}
+            disabled={!canSubmit}
             onClick={submitRegistration}
             className={`${lemonade.className} antialiased gold`}
           >
@@ -203,6 +240,19 @@ export default function Registration({
           </button>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Bounce}
+      />
     </div>
   );
 }

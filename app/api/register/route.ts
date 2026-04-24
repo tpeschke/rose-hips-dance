@@ -12,7 +12,7 @@ function getTodaysDate() {
 
 export async function POST(request: Request) {
     const body = await request.json();
-    const { firstName, secondName, phoneNumber, email, address, classes, hasAgreed, recommendation } = body;
+    const { firstName, secondName, phoneNumber, email, address, classes, hasAgreed, recommendation, hasPaid, amount } = body;
 
     const canSubmit =
         !!firstName &&
@@ -49,8 +49,9 @@ export async function POST(request: Request) {
         'Classes': classes.toString(),
         'Agreed to Waiver': hasAgreed,
         'Recommendation Source': recommendation,
-        'Paid': true,
-        'Date Paid': getTodaysDate()
+        'Paid': hasPaid,
+        'Date Paid': hasPaid ? getTodaysDate() : '',
+        'Amount': amount
     })
 
     return new Response(JSON.stringify({ registered: true }), {
