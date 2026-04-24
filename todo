@@ -11,23 +11,21 @@ https://www.frontscope.dev/
 https://github.com/EdgeComet/engine
 https://ko-fi.com/morenopaissanmaps/shop
 
+Contact
+    Registration link
+        Pay at the Registration
+            Venmo integration
+                https://developer.paypal.com/studio/checkout/standard/integrate
+                    No "Pay Later" or "Credit Card"
+                "If you can't pay via PayPal or Venmo, please contact placeholder@placeholder.com"
+       Punch Cards for the different classes
 Need to touch base with:
     Philosophy
     Gallery
-    Contact
-        Registration link
-           like Boda has
-           Pay at the Registration (send to venmo)
-           Punch Cards for the different classes
 Phone number input: https://www.npmjs.com/package/react-number-format
 Home > Our Philosophy pics
 Home > Main Banner > Learn More Button
 Actual Class Info & Pics
-Kofi integration
-Mobile
-    Home
-    Classes
-    Contact
 Favicon
 Meta Data
 
@@ -45,7 +43,7 @@ Onyx: 0a0a0a
 Burgundy Primary: 5e0715
 Burgundy: 721322
 Burgundy 2: 7f1526
-Prussian Blue: #003153
+Prussian Blue: 003153
 Dark Goldenrod: a77d1c
 Golden Bronze: c99418
 Dark Teal: 265d69

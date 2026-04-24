@@ -5,6 +5,7 @@ import { mhiora, lemonade } from "../../../utilities/fonts";
 import { useEffect, useState } from "react";
 import classInfo from "../../../utilities/classInfo";
 import BackgroundImages from "@/app/components/backgroundImages/backgroundImages";
+import axios from "axios";
 
 export default function Registration({
   params,
@@ -12,9 +13,9 @@ export default function Registration({
   params: Promise<{ className: string }>;
 }) {
   const [firstName, setFirstName] = useState<string | null>();
-  const [secondName, setSecondName] = useState<string | null>();
+  const [secondName, setSecondName] = useState<string | null>('Peschke');
 
-  const [phoneNumber, setPhoneNumber] = useState<string | null>();
+  const [phoneNumber, setPhoneNumber] = useState<string | null>('408-706-4300');
   const formatAndSetPhoneNumber = (phoneString: string) => {
     const cleaned = ("" + phoneString).replace(/\D/g, "");
     const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
@@ -24,8 +25,8 @@ export default function Registration({
     setPhoneNumber(null);
   };
 
-  const [email, setEmail] = useState<string | null>();
-  const [address, setAddress] = useState<string | null>();
+  const [email, setEmail] = useState<string | null>('mr.peschke@gmail.com');
+  const [address, setAddress] = useState<string | null>('123 placeholder street');
 
   const [classes, setClasses] = useState<string[]>([]);
 
@@ -48,9 +49,9 @@ export default function Registration({
     setSelectedClass(null);
   };
 
-  const [recommendation, setRecommendation] = useState<string | null>();
+  const [recommendation, setRecommendation] = useState<string | null>('nobody');
 
-  const [hasAgreed, setHasAgreed] = useState(false);
+  const [hasAgreed, setHasAgreed] = useState(true);
 
   const canSubmit =
     !!firstName &&
@@ -68,6 +69,13 @@ export default function Registration({
       }
     });
   }, [params]);
+
+  const submitRegistration = async () => {
+    const { data } = await axios.post('/api/register', {
+      firstName, secondName, phoneNumber, email, address, classes, hasAgreed, recommendation
+    })
+    console.log(data)
+  }
 
   return (
     <div className="registration">
@@ -187,7 +195,8 @@ export default function Registration({
 
           <br />
           <button
-            disabled={!canSubmit}
+            // disabled={!canSubmit}
+            onClick={submitRegistration}
             className={`${lemonade.className} antialiased gold`}
           >
             Submit
