@@ -11,6 +11,7 @@
 .registration .class-registration-card {
   color: var(--white);
   padding: 35px;
+  min-width: 100%;
 }
 
 .registration .class-registration-card h1 {

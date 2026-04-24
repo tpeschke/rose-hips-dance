@@ -1,11 +1,14 @@
 import "./rotatingSun.css";
 import Image from "next/image";
 
-export default function RotatingSun() {
-  const sunDimensions = 1350;
+interface Props {
+  sunDimensions?: number,
+  isLoading?: boolean
+}
 
+export default function RotatingSun({sunDimensions = 1350, isLoading = false}: Props) {
   return (
-    <div className="rotating-sun">
+    <div className={`rotating-sun ${isLoading && 'loading'}`}>
       <Image
         aria-hidden
         src="/homeImages/sun.png"
