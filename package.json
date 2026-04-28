@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@paypal/paypal-server-sdk": "^2.3.0",
+    "@paypal/react-paypal-js": "^9.1.1",
     "axios": "^1.15.2",
     "google-auth-library": "^10.6.2",
     "google-spreadsheet": "^5.2.0",

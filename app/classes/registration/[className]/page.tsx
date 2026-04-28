@@ -8,6 +8,7 @@ import BackgroundImages from "@/app/components/backgroundImages/backgroundImages
 import axios from "axios";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import RotatingSun from "@/app/homeComponents/rotatingSun/rotatingSun";
+import PayPalButtonsDisplay from "./components/PayPalButtonsDisplay";
 
 interface ClassInterface {
   title: string,
@@ -239,6 +240,11 @@ export default function Registration({
         </span>
 
         <br />
+
+        <PayPalButtonsDisplay />
+
+        <br />
+        
         <button
           disabled={!canSubmit}
           onClick={submitRegistration}
