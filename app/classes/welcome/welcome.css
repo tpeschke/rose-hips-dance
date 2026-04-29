@@ -1,0 +1,32 @@
+.welcome-page {
+  position: relative;
+  overflow: hidden;
+  padding: 50px 0 35px;
+  min-height: 100vh;
+  background: var(--prussianBlue);
+  display: flex;
+  justify-content: space-around;
+}
+
+.welcome-page .welcome-card {
+  color: var(--white);
+  padding: 35px;    
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.welcome-page .welcome-card h1 {
+  color: var(--gold);
+  font-size: 50px;
+}
+
+.welcome-page .welcome-card h2 {
+  color: var(--gold);
+  font-size: 35px;
+  margin: 15px 0;
+}
+
+.welcome-card div.eyebrow {
+    margin-bottom: 15px;
+}

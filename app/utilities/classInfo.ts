@@ -8,6 +8,7 @@ const inPerson = [
       "Each activity listed above is used to help restore different aspects of the Self within a space that strongly focuses on community connections",
     ],
     prereqs: [],
+    time: '3rd Friday of Every Month, 5 am',
     cost: 50
   },
   {
@@ -19,6 +20,7 @@ const inPerson = [
       "Each activity listed above is used to help restore different aspects of the Self within a space that strongly focuses on community connections",
     ],
     prereqs: ["Restorative Belly Dance 1", "Fire Dancing with Confidence"],
+    time: 'Mondays, 12:30 pm',
     cost: 25
   },
 ];
@@ -33,6 +35,7 @@ const online = [
       "Each activity listed above is used to help restore different aspects of the Self within a space that strongly focuses on community connections",
     ],
     prereqs: [],
+    time: 'Christmas Eve, 5 am',
     cost: 25
   },
 ];
@@ -47,6 +50,7 @@ const oneOnOne = [
       "Each activity listed above is used to help restore different aspects of the Self within a space that strongly focuses on community connections",
     ],
     prereqs: [],
+    time: 'Scheduled Per Student',
     cost: 175
   },
 ];

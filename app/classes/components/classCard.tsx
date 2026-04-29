@@ -4,17 +4,18 @@ import Link from "next/link";
 
 interface Props {
   classDetails: {
-    title: string;
-    skillLevel: string;
-    body: string[];
-    prereqs: string[];
+    title: string,
+    skillLevel: string,
+    body: string[],
+    prereqs: string[],
+    time: string,
     cost: number
   };
   isOdd: Boolean;
 }
 
 export default function ClassCard({ classDetails, isOdd }: Props) {
-  const { title, skillLevel, body, prereqs, cost } = classDetails;
+  const { title, skillLevel, body, prereqs, time, cost } = classDetails;
 
   function formatPrereqs(prereqs: string[]) {
     if (prereqs.length === 0) return "None";
@@ -50,6 +51,12 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
             Prerequisite:{" "}
           </strong>{" "}
           {formatPrereqs(prereqs)}
+        </p>
+        <p>
+          <strong className={`${mhiora.className} antialiased`}>
+            Time:{" "}
+          </strong>{" "}
+          {time}
         </p>
         <p>
           <strong className={`${mhiora.className} antialiased`}>
