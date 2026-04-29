@@ -180,3 +180,8 @@ div.strike-right img {
 .gray {
   color: var(--lightGray);
 }
+
+.warning {
+  background: var(--burgundy);
+  padding: 5px;
+}

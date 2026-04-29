@@ -10,8 +10,9 @@
 
 .registration .class-registration-card {
   color: var(--white);
-  padding: 35px;
-  min-width: 100%;
+  padding: 35px;    
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .registration .class-registration-card h1 {

@@ -2,11 +2,13 @@
 import "./registration.css";
 import Link from "next/link";
 import { mhiora, lemonade } from "../../../utilities/fonts";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import classInfo from "../../../utilities/classInfo";
 import BackgroundImages from "@/app/components/backgroundImages/backgroundImages";
 import { Bounce, ToastContainer } from "react-toastify";
 import PayPalButtonsDisplay from "./components/PayPalButtonsDisplay";
+import validateEmail from "./components/utilities/validateEmail";
+import { formatPhoneNumber, validatePhoneNumber } from "./components/utilities/phoneUtilities";
 
 export interface ClassInterface {
   title: string,
@@ -18,21 +20,22 @@ export default function Registration({
 }: {
   params: Promise<{ className: string }>;
 }) {
-  const [firstName, setFirstName] = useState<string | null>('Trent');
-  const [secondName, setSecondName] = useState<string | null>('Peschke');
+  const [firstName, setFirstName] = useState<string | null>(null);
+  const [secondName, setSecondName] = useState<string | null>(null);
 
-  const [phoneNumber, setPhoneNumber] = useState<string | null>('408-706-4300');
-  const formatAndSetPhoneNumber = (phoneString: string) => {
-    const cleaned = ("" + phoneString).replace(/\D/g, "");
-    const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-    if (match) {
-      setPhoneNumber("(" + match[1] + ") " + match[2] + "-" + match[3]);
+  const [phoneNumber, setPhoneNumber] = useState<string | null>(null);
+
+  const formatAndSetPhoneNumber = (event: ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
+    const formattedString = formatPhoneNumber(event.target.value)
+
+    if (formattedString) {
+      event.target.value = formattedString
     }
-    setPhoneNumber(null);
+    setPhoneNumber(formattedString);
   };
 
-  const [email, setEmail] = useState<string | null>('mr.peschke@gmail.com');
-  const [address, setAddress] = useState<string | null>('123 placeholder street');
+  const [email, setEmail] = useState<string | null>(null);
+  const [address, setAddress] = useState<string | null>(null);
 
   const [classes, setClasses] = useState<ClassInterface[]>([]);
 
@@ -55,15 +58,17 @@ export default function Registration({
     setSelectedClass(null);
   };
 
-  const [recommendation, setRecommendation] = useState<string | null>('nobody');
+  const [recommendation, setRecommendation] = useState<string | null>(null);
 
-  const [hasAgreed, setHasAgreed] = useState(true);
+  const [hasAgreed, setHasAgreed] = useState(false);
 
   const canSubmit =
     !!firstName &&
     !!secondName &&
     !!phoneNumber &&
+    validatePhoneNumber(phoneNumber) &&
     !!email &&
+    validateEmail(email) &&
     !!address &&
     classes.length > 0 &&
     hasAgreed;
@@ -107,11 +112,11 @@ export default function Registration({
         </h2>
         <div className="inputs-shell">
           <span>
-            <input onChange={(event) => setFirstName(event.target.value)} />
+            <input onChange={(event) => setFirstName(event.target.value.trim())} maxLength={150} />
             <label>First</label>
           </span>
           <span>
-            <input onChange={(event) => setSecondName(event.target.value)} />
+            <input onChange={(event) => setSecondName(event.target.value.trim())} maxLength={150} />
             <label>Second</label>
           </span>
 
@@ -120,18 +125,20 @@ export default function Registration({
           </h2>
           <input
             maxLength={16}
-            onChange={(event) => formatAndSetPhoneNumber(event.target.value)}
+            onChange={formatAndSetPhoneNumber}
           />
+          {(hasAgreed && phoneNumber && !validatePhoneNumber(phoneNumber)) && <p className="warning">Phone Number isn't valid</p>}
 
           <h2>
             Email <strong>*</strong>
           </h2>
           <input onChange={(event) => setEmail(event.target.value)} />
+          {(hasAgreed && email && !validateEmail(email)) && <p className="warning">Email isn't valid</p>}
 
           <h2>
             Address <strong>*</strong>
           </h2>
-          <input onChange={(event) => setAddress(event.target.value)} />
+          <input onChange={(event) => setAddress(event.target.value.trim())} maxLength={500} />
 
           <h2>
             Classes <strong>*</strong>
