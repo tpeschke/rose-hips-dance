@@ -18,7 +18,7 @@ export default function Footer() {
     {
       title: "Connect",
       items: ["Instagram", "Contact Us"].map((title) => {
-        return { title, link: `/` };
+        return { title, link: `/contact` };
       }),
     },
   ];

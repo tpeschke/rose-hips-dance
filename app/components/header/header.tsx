@@ -66,7 +66,7 @@ export default function Header() {
           <Link href="/classes">Classes</Link>
         </li>
         {/* <li>Our Story</li> */}
-        <li>Contact</li>
+        <li><Link href="/contact">Contact</Link></li>
         <li>
           <Link href="/classes">
             <button

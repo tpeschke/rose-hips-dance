@@ -1,0 +1,27 @@
+.contact-page {
+  position: relative;
+  overflow: hidden;
+  padding: 50px 0 35px;
+  min-height: 100vh;
+  background: var(--burgundy);
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact-page .contact-card {
+  color: var(--white);
+  padding: 35px;    
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-page .contact-card h1 {
+    font-size: 50px;
+}
+
+.contact-page .contact-card h2 {
+    color: var(--gold);
+  font-size: 35px;
+  margin: 15px 0;
+}
