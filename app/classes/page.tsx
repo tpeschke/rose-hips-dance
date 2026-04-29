@@ -6,7 +6,7 @@ import { mhiora, lemonade } from "../utilities/fonts";
 import Image from "next/image";
 import BackgroundImages from "../components/backgroundImages/backgroundImages";
 import ClassCard from "./components/classCard";
-import Spacer from "./components/spacer";
+import Spacer from "./components/divider";
 
 export default function Classes() {
   const [filter, setFilter] = useState<
@@ -20,6 +20,8 @@ export default function Classes() {
       setFilter(newFilter);
     }
   };
+
+  const showSpacer = filter && classInfo[filter].length < 2
 
   const onlineIndexAddOn = !filter ? classInfo.inPerson.length : 0;
   const oneOnOneIndexAddOn = !filter
@@ -94,6 +96,7 @@ export default function Classes() {
           ))}
         </>
       )}
+      {showSpacer && <div className="spacer"></div>}
     </div>
   );
 }

@@ -58,11 +58,15 @@
   flex-direction: row-reverse;
 }
 
-.spacer {
+.divider {
   padding: 7px 0;
   background: linear-gradient(0deg,
       rgba(0, 49, 83, 1) 0%,
       rgba(94, 7, 21, 1) 100%);
+}
+
+.classes .spacer {
+    height: 500px;
 }
 
 .class-card>div {
@@ -130,7 +134,7 @@
     background: #ffffff;
   }
 
-  .spacer {
+  .divider, .classes .spacer {
     display: none;
   }
 }
