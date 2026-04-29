@@ -1,22 +1,13 @@
+import { PurchaseUnitRequest } from "@paypal/paypal-server-sdk";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export default async function createOrder(): Promise<{ orderId: string }> {
+export default async function createOrder(cart: PurchaseUnitRequest[]): Promise<{ orderId: string }> {
     try {
         const { data } = await axios.post(
-            "/api/orders",
+            "/api/orders/create",
             {
-                cart: [
-                    {
-                        id: "YOUR_PRODUCT_ID",
-                        quantity: "YOUR_PRODUCT_QUANTITY",
-                    },
-                ],
-            },
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                }
+                cart
             }
         );
 

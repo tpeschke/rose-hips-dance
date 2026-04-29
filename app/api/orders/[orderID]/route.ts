@@ -1,5 +1,6 @@
-import { OrdersController, ApiError, Client, LogLevel, CheckoutPaymentIntent } from "@paypal/paypal-server-sdk";
-import getEnvironmentVariables from "../utilities/getEnvironmentVariables";
+import { ApiError, Client, LogLevel, OrdersController } from "@paypal/paypal-server-sdk";
+import getEnvironmentVariables from "../../utilities/getEnvironmentVariables";
+import { NextRequest } from "next/server";
 
 const {
     clientID,
@@ -23,17 +24,7 @@ const client = new Client({
 
 const ordersController = new OrdersController(client);
 
-interface Cart {
-    intent: CheckoutPaymentIntent
-}
-
-interface Request {
-    body: {
-        cart: Cart
-    }
-}
-
-const createOrder = async (cart: Cart)
+const captureOrder = async (orderID: string)
     : Promise<
         {
             jsonResponse: any,
@@ -41,41 +32,12 @@ const createOrder = async (cart: Cart)
         } | undefined
     > => {
     const collect = {
-        body: {
-            intent: CheckoutPaymentIntent.Capture,
-            purchaseUnits: [
-                {
-                    amount: {
-                        currencyCode: "USD",
-                        value: "100",
-                        breakdown: {
-                            itemTotal: {
-                                currencyCode: "USD",
-                                value: "100",
-                            },
-                        },
-                    },
-                    items: [
-                        {
-                            name: "T-Shirt",
-                            unitAmount: {
-                                currencyCode: "USD",
-                                value: "100",
-                            },
-                            quantity: "1",
-                            description: "Super Fresh Shirt",
-                            sku: "sku01",
-                        },
-                    ],
-                },
-            ],
-        },
+        id: orderID,
         prefer: "return=minimal",
     };
 
-
     try {
-        const { body, ...httpResponse } = await ordersController.createOrder(
+        const { body, ...httpResponse } = await ordersController.captureOrder(
             collect
         );
         // Get more response info...
@@ -92,11 +54,16 @@ const createOrder = async (cart: Cart)
     }
 };
 
-export async function POST(req: Request) {
+interface Request {
+    params: {
+        orderID: string
+    }
+}
+
+export async function GET(req: NextRequest, { params }: { params: { orderID: string } }) {
     try {
-        // use the cart information passed from the front-end to calculate the order amount details
-        const { cart } = req.body;
-        const response = await createOrder(cart);
+        const { orderID } = await params;
+        const response = await captureOrder(orderID);
         if (response) {
             const { jsonResponse, httpStatusCode } = response
             return new Response(JSON.stringify(jsonResponse), {
@@ -116,4 +83,4 @@ export async function POST(req: Request) {
             headers: { 'Content-Type': 'application/json' }
         })
     }
-}
+};

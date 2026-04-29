@@ -1,5 +1,6 @@
-import getEnvironmentVariables from "@/app/api/utilities/getEnvironmentVariables";
-import { ApiError, Client, LogLevel, OrdersController } from "@paypal/paypal-server-sdk";
+import { OrdersController, ApiError, Client, LogLevel, CheckoutPaymentIntent, PurchaseUnitRequest } from "@paypal/paypal-server-sdk";
+import getEnvironmentVariables from "../../utilities/getEnvironmentVariables";
+import { NextRequest } from "next/server";
 
 const {
     clientID,
@@ -23,7 +24,13 @@ const client = new Client({
 
 const ordersController = new OrdersController(client);
 
-const captureOrder = async (orderID: string)
+interface Request {
+    body: {
+        cart: PurchaseUnitRequest[]
+    }
+}
+
+const createOrder = async (cart: PurchaseUnitRequest[])
     : Promise<
         {
             jsonResponse: any,
@@ -31,12 +38,16 @@ const captureOrder = async (orderID: string)
         } | undefined
     > => {
     const collect = {
-        id: orderID,
+        body: {
+            intent: CheckoutPaymentIntent.Capture,
+            purchaseUnits: cart,
+        },
         prefer: "return=minimal",
     };
 
+
     try {
-        const { body, ...httpResponse } = await ordersController.captureOrder(
+        const { body, ...httpResponse } = await ordersController.createOrder(
             collect
         );
         // Get more response info...
@@ -53,21 +64,11 @@ const captureOrder = async (orderID: string)
     }
 };
 
-interface Request {
-    params: {
-        orderID: string
-    }
-}
-
-interface Response {
-    send: Function,
-    status: Function
-}
-
-export async function POST(req: Request, res: Response) {
+export async function POST(req: NextRequest) {
     try {
-        const { orderID } = req.params;
-        const response = await captureOrder(orderID);
+        // use the cart information passed from the front-end to calculate the order amount details
+        const { cart } = await req.json();
+        const response = await createOrder(cart);
         if (response) {
             const { jsonResponse, httpStatusCode } = response
             return new Response(JSON.stringify(jsonResponse), {
@@ -87,4 +88,4 @@ export async function POST(req: Request, res: Response) {
             headers: { 'Content-Type': 'application/json' }
         })
     }
-};
+}

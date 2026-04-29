@@ -1,39 +1,30 @@
+import { OnApproveDataOneTimePayments } from "@paypal/react-paypal-js/sdk-v6";
+import axios from "axios";
 import { toast } from "react-toastify";
 
-export default async function onApprove(data: any, actions: any): Promise<any> {
+export default async function onApprove(inputData: OnApproveDataOneTimePayments): Promise<boolean | void> {
     try {
-        const response = await fetch(
-            `/api/orders/${data.orderID}/capture`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }
+        const { data } = await axios.get(
+            "/api/orders/" + inputData.orderId
         );
 
-        const orderData = await response.json();
+        const orderData = await JSON.parse(data);
 
         const errorDetail = orderData?.details?.[0];
 
         if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
             // https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
-            return actions.restart();
+            toast.error(`Declined`)
+            throw new Error(
+                `${errorDetail.description} (${orderData.debug_id})`
+            );
         } else if (errorDetail) {
             toast.error(`${errorDetail.description} (${orderData.debug_id})`)
             throw new Error(
                 `${errorDetail.description} (${orderData.debug_id})`
             );
         } else {
-            const transaction =
-                orderData.purchase_units[0].payments
-                    .captures[0];
-            toast.success(`Transaction ${transaction.status}: ${transaction.id}. See console for all available details`)
-            console.log(
-                "Capture result",
-                orderData,
-                JSON.stringify(orderData, null, 2)
-            );
+            return true
         }
     } catch (error) {
         toast.error(`Sorry, your transaction could not be processed\n${error}`)
