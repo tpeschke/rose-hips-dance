@@ -25,9 +25,6 @@ export default function Contact() {
                 <div>
                     <h2 className={`${mhiora.className} antialiased`}>Email</h2>
                     <p className='subtitle'>tiarra.stout@gmail.com</p>
-                    
-                    <h2 className={`${mhiora.className} antialiased`}>Instagram</h2>
-                    <p className='subtitle'>tiarra.stout@gmail.com</p>
                 </div>
             </div>
         </div>
