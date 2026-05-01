@@ -1,7 +1,6 @@
 import "./findYourClass.css";
 import { mhiora, lemonade } from "../../utilities/fonts";
 import Image from "next/image";
-import classInfo, { createID } from "../../utilities/classInfo";
 import Link from "next/link";
 
 export default function FindYourClass() {
@@ -23,60 +22,28 @@ export default function FindYourClass() {
         </div>
       </div>
       <div className="class-catalog-squares">
-        {classInfo.inPerson.map(({ title }, index) => {
-          {
-            /* Header image */
-          }
-          return (
-            <div className="class-square" key={index}>
-              <Link href={`/classes#${createID(title)}`}>
-                <h2 className={`${mhiora.className} antialiased`}>{title}</h2>
-                <p className="subtitle">In Person</p>
-                <button
-                  className={`${lemonade.className} antialiased full-transparent`}
-                >
-                  Explore →
-                </button>
-              </Link>
-            </div>
-          );
-        })}
-        {classInfo.online.map(({ title }, index) => {
-          {
-            /* Header image */
-          }
-          return (
-            <div className="class-square" key={index}>
-              <Link href={`/classes#${createID(title)}`}>
-                <h2 className={`${mhiora.className} antialiased`}>{title}</h2>
-                <p className="subtitle">Online</p>
-                <button
-                  className={`${lemonade.className} antialiased full-transparent`}
-                >
-                  Explore →
-                </button>
-              </Link>
-            </div>
-          );
-        })}
-        {classInfo.oneOnOne.map(({ title }, index) => {
-          {
-            /* Header image */
-          }
-          return (
-            <div className="class-square" key={index}>
-              <Link href={`/classes#${createID(title)}`}>
-                <h2 className={`${mhiora.className} antialiased`}>{title}</h2>
-                <p className="subtitle">One on One</p>
-                <button
-                  className={`${lemonade.className} antialiased full-transparent`}
-                >
-                  Explore →
-                </button>
-              </Link>
-            </div>
-          );
-        })}
+        <Link href={`/classes#in-person`}>
+          <div className="class-square">
+            {/* Header Image */}
+            <h2 className={`${mhiora.className} antialiased`}>In Person</h2>
+            <button
+              className={`${lemonade.className} antialiased full-transparent`}
+            >
+              Explore →
+            </button>
+          </div>
+        </Link>
+        <Link href={`/classes#online`}>
+          <div className="class-square">
+            {/* Header Image */}
+            <h2 className={`${mhiora.className} antialiased`}>Online</h2>
+            <button
+              className={`${lemonade.className} antialiased full-transparent`}
+            >
+              Explore →
+            </button>
+          </div>
+        </Link>
       </div>
     </div>
   );
