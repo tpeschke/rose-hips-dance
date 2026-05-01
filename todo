@@ -13,6 +13,7 @@ Home >
     Philosophy >
         z-index is off
         Hide "Our Story" button
+        Remove second picture
     Marquee >
         Banner shouldn't end
     Find your perfect class > 
@@ -21,9 +22,31 @@ Home >
             "Online"
     Begin Your Journey >
         "Ready to Begin Your Healing Journey" to "Ready to Begin Your Journey"
-Class Info: 
+Class Info:
     Remove One-on-One
     See Discord message for info
+    Eccles address for in-person classes
+Class Registration
+    First and Second title are placeholders (not to the side)
+        Second change to Last
+    Remove Address
+    Remove Debit and Credit Card option
+    "Contact Page" should be a link to
+    Add "Pay with Cash or Check" flow
+        Note that it needs to be the exact amount of Cash
+        Due on first class
+        Make sure it gets highlighted in spreadsheet
+Welcome
+    Z-index on body is off
+    "apart" should be 'a part'
+    Next Steps is wrong since she won't be reaching
+    Include Eccles address
+    Email address should route to Contact Page
+    Display the class info for whatever classes they registered for
+Contact
+    email z-index should be higher (behind sun)
+    Contact form instead of straight email
+Automating a notification when the spreadsheet gets a new row
 Info I need from T
     Home > Our Philosophy pics
     Actual Class Info & Pics
