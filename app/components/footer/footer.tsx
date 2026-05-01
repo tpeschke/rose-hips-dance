@@ -5,19 +5,19 @@ import Link from "next/link";
 
 export default function Footer() {
   const sections = [
-    {
-      title: "Stories",
-      items: [
-        // "Our Story",
-        "Philosophy",
-        "Gallery",
-      ].map((title) => {
-        return { title, link: `/` };
-      }),
-    },
+    // {
+    //   title: "Stories",
+    //   items: [
+    //     // "Our Story",
+    //     "Philosophy",
+    //     "Gallery",
+    //   ].map((title) => {
+    //     return { title, link: `/` };
+    //   }),
+    // },
     {
       title: "Connect",
-      items: ["Contact Us"].map((title) => {
+      items: ["Contact"].map((title) => {
         return { title, link: `/contact` };
       }),
     },
