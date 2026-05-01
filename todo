@@ -4,10 +4,6 @@ https://github.com/EdgeComet/engine
 https://ko-fi.com/morenopaissanmaps/shop
 
 Home >
-    Main Banner >
-        .main-banner .columns: z-index should be 2
-        Learn More routes to Contact
-        Subtitle: Remove "ancient"
     Philosophy >
         z-index is off
         Hide "Our Story" button

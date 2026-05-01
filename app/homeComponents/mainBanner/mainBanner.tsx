@@ -14,7 +14,7 @@ export default function MainBanner() {
             <span>Rediscover</span> Yourself.
           </h1>
           <p className="subtitle">
-            Where ancient Middle Eastern dance meets modern healing; gently
+            Where Middle Eastern dance meets modern healing; gently
             restoring your body, your confidence, and your deepest joy.
           </p>
           <div className="class-buttons">
@@ -23,9 +23,11 @@ export default function MainBanner() {
                 Begin Your Journey
               </button>
             </Link>
-            <button className={`${lemonade.className} antialiased transparent`}>
-              Learn More
-            </button>
+            <Link href="/contact">
+              <button className={`${lemonade.className} antialiased transparent`}>
+                Learn More
+              </button>
+            </Link>
           </div>
         </div>
         <div className="portrait">

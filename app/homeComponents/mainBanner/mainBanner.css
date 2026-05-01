@@ -15,7 +15,7 @@
   align-items: center;
   position: absolute;
   top: 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 .main-banner .columns>div {
