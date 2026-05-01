@@ -27,6 +27,8 @@ export default function Welcome() {
                 <h2 className={`${mhiora.className} antialiased eyebrow`}>Next Steps</h2>
                 <p>You'll receive an email shortly touching base with information about where the class is taking place.</p>
                 <p>In the meantime, sit tight!</p>
+                <br/>
+                <p>But, if you have further questions, please don't hesitate to reach out at <span>tiarra.stout@gmail.com</span></p>
             </div>
         </div>
     )

@@ -3,13 +3,27 @@ https://www.frontscope.dev/
 https://github.com/EdgeComet/engine
 https://ko-fi.com/morenopaissanmaps/shop
 
-Need to touch base with:
-    Welcome page
-        "If you have further questions..."
-    Philosophy
-    Gallery
-Home > Main Banner > Learn More Button
-    Probably should go to Philosophy
+Remove Philosophy
+Remove Gallery
+Home >
+    Main Banner >
+        .main-banner .columns: z-index should be 2
+        Learn More routes to Contact
+        Subtitle: Remove "ancient"
+    Philosophy >
+        z-index is off
+        Hide "Our Story" button
+    Marquee >
+        Banner shouldn't end
+    Find your perfect class > 
+        just have links to (takes to section of page: doesn't filter)
+            "In Person"
+            "Online"
+    Begin Your Journey >
+        "Ready to Begin Your Healing Journey" to "Ready to Begin Your Journey"
+Class Info: 
+    Remove One-on-One
+    See Discord message for info
 Info I need from T
     Home > Our Philosophy pics
     Actual Class Info & Pics
@@ -18,9 +32,11 @@ Meta Data
 
 ------ MVP Done ------
 
-Our Story
+About
+    Reroute "Learn More" on Home page to this page after its up
     Mobile
     Meta Data
+Gallery
 Admin Backend
     Show who has registered
         Name / Email / Phone

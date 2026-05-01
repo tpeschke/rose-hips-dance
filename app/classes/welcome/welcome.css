@@ -27,6 +27,10 @@
   margin: 15px 0;
 }
 
+.welcome-page .welcome-card p span {
+  color: var(--gold);
+}
+
 .welcome-card div.eyebrow {
     margin-bottom: 15px;
 }
