@@ -7,7 +7,7 @@ export default function OurPhilosophy() {
       <div id="story-banner" className="story-banner">
         <div>
           <div className="instructor-image"></div>
-          <div className="studio-image"></div>
+          {/* <div className="studio-image"></div> */}
         </div>
         <div>
           <p className="strike-right">Our Philosophy</p>
@@ -27,9 +27,9 @@ export default function OurPhilosophy() {
             transitions, or simply longing to feel alive in your body again, you
             belong here.
           </p>
-          <button className={`${lemonade.className} antialiased gold`}>
+          {/* <button className={`${lemonade.className} antialiased gold`}>
             Our Story
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
