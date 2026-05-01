@@ -76,7 +76,7 @@ export default function BeginYourJourney() {
             <div className="cta-corner cta-corner-bl"></div>
             <div className="cta-corner cta-corner-br"></div>
             <h1 className={`${mhiora.className} antialiased`}>
-              Ready to begin your healing journey?
+              Ready to begin your journey?
             </h1>
           </div>
         </div>
