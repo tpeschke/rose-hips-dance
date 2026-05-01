@@ -42,7 +42,6 @@ export default function Registration({
   const classSelectOptions = [
     ...classInfo.inPerson,
     ...classInfo.online,
-    ...classInfo.oneOnOne,
   ].filter((classOption) => {
     return classes.findIndex(option => option.title === classOption.title) === -1;
   });

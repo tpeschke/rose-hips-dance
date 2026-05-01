@@ -1,21 +1,24 @@
 import { mhiora, lemonade } from "../../utilities/fonts";
 import { createID } from "../../utilities/classInfo";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Props {
   classDetails: {
     title: string,
+    image?: string,
     skillLevel: string,
     body: string[],
     prereqs: string[],
     time: string,
+    address?: string,
     cost: number
   };
   isOdd: Boolean;
 }
 
 export default function ClassCard({ classDetails, isOdd }: Props) {
-  const { title, skillLevel, body, prereqs, time, cost } = classDetails;
+  const { title, image = 'bellyDanceForSoul.jpg', skillLevel, body, prereqs, time, address, cost } = classDetails;
 
   function formatPrereqs(prereqs: string[]) {
     if (prereqs.length === 0) return "None";
@@ -32,7 +35,13 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
       <div className="image-shell">
         <div id={createID(title)} className="nav-id"></div>
         <h1 className={`${mhiora.className} antialiased`}>{title}</h1>
-        <div></div>
+        <Image
+          aria-hidden
+          src={`/classImages/${image}`}
+          alt="a hot piece of ass"
+          width={400}
+          height={400}
+        />
       </div>
       <div className="class-body">
         <p>
@@ -58,11 +67,17 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
           </strong>{" "}
           {time}
         </p>
+        {address && <p>
+          <strong className={`${mhiora.className} antialiased`}>
+            Address:{" "}
+          </strong>{" "}
+          {address}
+        </p>}
         <p>
           <strong className={`${mhiora.className} antialiased`}>
             Cost:{" "}
           </strong>{" "}
-          ${cost}
+          ${cost} (for series)
         </p>
         <Link href={`/classes/registration/${title}`}>
           <button className={`${lemonade.className} antialiased transparent`}>

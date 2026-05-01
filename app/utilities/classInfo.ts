@@ -1,34 +1,22 @@
 const inPerson = [
   {
-    title: "Restorative Belly Dance 1",
-    image: "",
+    title: "Belly Dance for the Soul",
+    image: "bellyDanceForTheSoul.jpg",
     skillLevel: "All",
     body: [
-      "Restorative Belly Dance specifically focuses on the restorative properties of community, breath work, somatic work, and dance",
-      "Each activity listed above is used to help restore different aspects of the Self within a space that strongly focuses on community connections",
+      "ALL ages, body types, and skills levels are welcome",
+      "Find joy and healing through belly dance and other therapeutic movements within a space that strongly emphasizes community connection.",
     ],
     prereqs: [],
-    time: '3rd Friday of Every Month, 5 am',
-    cost: 50
-  },
-  {
-    title: "Restorative Belly Dance 2",
-    image: "",
-    skillLevel: "Mega Advanced",
-    body: [
-      "Restorative Belly Dance specifically focuses on the restorative properties of community, breath work, somatic work, and dance",
-      "Each activity listed above is used to help restore different aspects of the Self within a space that strongly focuses on community connections",
-    ],
-    prereqs: ["Restorative Belly Dance 1", "Fire Dancing with Confidence"],
-    time: 'Mondays, 12:30 pm',
-    cost: 25
-  },
+    time: 'Mondays at 5:30 PM\nJune 1st - July 27th (9 Weeks)',
+    address: '\n2580 Jefferson Ave, Ogden, UT 84401\nDance Studio located near the parking lot in the back',
+    cost: 100
+  }
 ];
 
 const online = [
   {
     title: "Restorative Belly Dance Online",
-    image: "",
     skillLevel: "All",
     body: [
       "Restorative Belly Dance specifically focuses on the restorative properties of community, breath work, somatic work, and dance",
@@ -40,25 +28,9 @@ const online = [
   },
 ];
 
-const oneOnOne = [
-  {
-    title: "One-on-One Tutoring",
-    image: "",
-    skillLevel: "All",
-    body: [
-      "Restorative Belly Dance specifically focuses on the restorative properties of community, breath work, somatic work, and dance",
-      "Each activity listed above is used to help restore different aspects of the Self within a space that strongly focuses on community connections",
-    ],
-    prereqs: [],
-    time: 'Scheduled Per Student',
-    cost: 175
-  },
-];
-
 export default {
   inPerson,
   online,
-  oneOnOne,
 };
 
 export function createID(title: string) {

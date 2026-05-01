@@ -67,6 +67,7 @@
 
 .classes .spacer {
     height: 500px;
+    background: var(--prussianBlue);
 }
 
 .class-card>div {
@@ -102,6 +103,7 @@
 
 .class-body p {
   margin-bottom: 15px;
+  white-space: pre-line;
 }
 
 .class-body strong {

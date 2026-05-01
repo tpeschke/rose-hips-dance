@@ -21,8 +21,6 @@ export default function Classes() {
   //   }
   // };
 
-  const showSpacer = filter && classInfo[filter].length < 2
-
   const onlineIndexAddOn = !filter ? classInfo.inPerson.length : 0;
   // const oneOnOneIndexAddOn = !filter
   //   ? onlineIndexAddOn + classInfo.online.length
@@ -74,7 +72,7 @@ export default function Classes() {
           ))}
         </>
       )}
-      {showSpacer && <div className="spacer"></div>}
+      <div className="spacer"></div>
     </div>
   );
 }
