@@ -8,7 +8,7 @@
 .marquee-band .marquee-inner {
   display: flex;
   align-items: center;
-  animation: marquee 160s linear infinite;
+  animation: marquee 160s linear infinite alternate;
 }
 
 .marquee-band .marquee-inner span {
@@ -23,6 +23,6 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-500%);
+    transform: translateX(-375%);
   }
 }
