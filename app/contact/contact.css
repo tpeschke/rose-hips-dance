@@ -10,18 +10,19 @@
 
 .contact-page .contact-card {
   color: var(--white);
-  padding: 35px;    
+  padding: 35px;
   max-width: 1440px;
   margin: 0 auto;
   text-align: center;
+  z-index: 1;
 }
 
 .contact-page .contact-card h1 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .contact-page .contact-card h2 {
-    color: var(--gold);
+  color: var(--gold);
   font-size: 35px;
   margin: 15px 0;
 }
