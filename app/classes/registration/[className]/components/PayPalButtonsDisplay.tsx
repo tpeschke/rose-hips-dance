@@ -59,9 +59,11 @@ export default function PayPalButtonsDisplay({ classes, canSubmit, registrationI
     }
 
     const approvedWithoutPaying = async (hasPaid: boolean) => {
+        const classTitles = registrationInfo.classes.map(({ title }) => title)
+
         const { status } = await axios.post('/api/register', {
             ...registrationInfo,
-            classes: registrationInfo.classes.map(({ title }) => title),
+            classes: classTitles,
             hasPaid,
             amount: total
         })
@@ -73,7 +75,11 @@ export default function PayPalButtonsDisplay({ classes, canSubmit, registrationI
             default:
                 toast.info(`Status: ${status}`)
         }
-        router.push('/classes/welcome')
+        const params = new URLSearchParams({
+            classes: classTitles.join(','),
+        });
+
+        router.push('/classes/welcome?' + params.toString())
     }
 
     return (

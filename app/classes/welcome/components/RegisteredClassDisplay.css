@@ -1,0 +1,19 @@
+.registered-class-display {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.registered-class-display h3 {
+    color: var(--gold)
+}
+
+.registered-class-display strong {
+    color: var(--lightGray)
+}
+
+.registered-class-display > * {
+    margin: 5px;
+    white-space: pre-line;
+}
