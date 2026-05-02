@@ -14,8 +14,7 @@ export default function MainBanner() {
             <span>Rediscover</span> Yourself.
           </h1>
           <p className="subtitle">
-            Where Middle Eastern dance meets modern healing; gently
-            restoring your body, your confidence, and your deepest joy.
+            Where Middle Eastern dance meets modern healing; gently restoring your body, your confidence, and helping you connect to your Aliveness.
           </p>
           <div className="class-buttons">
             <Link href="/classes">
