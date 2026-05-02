@@ -179,6 +179,7 @@ export default function Registration({
 
           <h2>How did you hear about Rose Hips Dance?</h2>
           <textarea
+            className={`${lemonade.className} antialiased`}
             onChange={(event) => setRecommendation(event.target.value)}
             maxLength={1000}
           />

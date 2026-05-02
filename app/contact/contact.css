@@ -26,3 +26,33 @@
   font-size: 35px;
   margin: 15px 0;
 }
+
+.contact-page form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-page form input,
+.contact-page textarea {
+  background: #00000025;
+  border: unset;
+  border-bottom: 1px solid var(--white);
+  color: var(--white);
+  margin: 5px;
+}
+
+.contact-page textarea {
+  width: 500px;
+  height: 100px;
+}
+
+.contact-page form label, .contact-page form input[type="checkbox"] {
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+}

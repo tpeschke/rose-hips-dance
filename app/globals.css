@@ -114,6 +114,10 @@ button:disabled:hover {
   transform: translate(0, 0);
 }
 
+textarea {
+  letter-spacing: 1px;
+}
+
 ul {
   list-style-type: none;
 }
@@ -149,8 +153,7 @@ p.eyebrow {
 
 div.eyebrow img,
 div.strike-right img {
-  filter: invert(81%) sepia(29%) saturate(6897%) hue-rotate(3deg)
-    brightness(89%) contrast(81%);
+  filter: invert(81%) sepia(29%) saturate(6897%) hue-rotate(3deg) brightness(89%) contrast(81%);
 }
 
 .eyebrow::before,
