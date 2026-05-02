@@ -21,7 +21,7 @@ export default function Registration({
   params: Promise<{ className: string }>;
 }) {
   const [firstName, setFirstName] = useState<string | null>(null);
-  const [secondName, setSecondName] = useState<string | null>(null);
+  const [lastName, setLastName] = useState<string | null>(null);
 
   const [phoneNumber, setPhoneNumber] = useState<string | null>(null);
 
@@ -35,7 +35,6 @@ export default function Registration({
   };
 
   const [email, setEmail] = useState<string | null>(null);
-  const [address, setAddress] = useState<string | null>(null);
 
   const [classes, setClasses] = useState<ClassInterface[]>([]);
 
@@ -63,12 +62,11 @@ export default function Registration({
 
   const canSubmit =
     !!firstName &&
-    !!secondName &&
+    !!lastName &&
     !!phoneNumber &&
     validatePhoneNumber(phoneNumber) &&
     !!email &&
     validateEmail(email) &&
-    !!address &&
     classes.length > 0 &&
     hasAgreed;
 
@@ -111,12 +109,10 @@ export default function Registration({
         </h2>
         <div className="inputs-shell">
           <span>
-            <input onChange={(event) => setFirstName(event.target.value.trim())} maxLength={150} />
-            <label>First</label>
+            <input onChange={(event) => setFirstName(event.target.value.trim())} maxLength={150} placeholder="First" />
           </span>
           <span>
-            <input onChange={(event) => setSecondName(event.target.value.trim())} maxLength={150} />
-            <label>Second</label>
+            <input onChange={(event) => setLastName(event.target.value.trim())} maxLength={150} placeholder="Second" />
           </span>
 
           <h2>
@@ -133,11 +129,6 @@ export default function Registration({
           </h2>
           <input onChange={(event) => setEmail(event.target.value)} />
           {(hasAgreed && email && !validateEmail(email)) && <p className="warning">Email isn't valid</p>}
-
-          <h2>
-            Address <strong>*</strong>
-          </h2>
-          <input onChange={(event) => setAddress(event.target.value.trim())} maxLength={500} />
 
           <h2>
             Classes <strong>*</strong>
@@ -221,7 +212,7 @@ export default function Registration({
           <PayPalButtonsDisplay
             classes={classes}
             canSubmit={canSubmit}
-            registrationInfo={{ firstName, secondName, phoneNumber, email, address, classes, hasAgreed, recommendation }}
+            registrationInfo={{ firstName, lastName, phoneNumber, email, classes, hasAgreed, recommendation }}
           />
         </div>
       </div >

@@ -12,14 +12,13 @@ function getTodaysDate() {
 
 export async function POST(request: Request) {
     const body = await request.json();
-    const { firstName, secondName, phoneNumber, email, address, classes, hasAgreed, recommendation, hasPaid, amount } = body;
+    const { firstName, lastName, phoneNumber, email, classes, hasAgreed, recommendation, hasPaid, amount } = body;
 
     const canSubmit =
         !!firstName &&
-        !!secondName &&
+        !!lastName &&
         !!phoneNumber &&
         !!email &&
-        !!address &&
         classes.length > 0 &&
         hasAgreed;
 
@@ -42,10 +41,9 @@ export async function POST(request: Request) {
     const sheet = doc.sheetsByIndex[0]
     await sheet.addRow({
         'First Name': firstName,
-        'Second Name': secondName,
+        'Last Name': lastName,
         'Phone Number': phoneNumber,
         'Email': email,
-        'Address': address,
         'Classes': classes.toString(),
         'Agreed to Waiver': hasAgreed,
         'Recommendation Source': recommendation,

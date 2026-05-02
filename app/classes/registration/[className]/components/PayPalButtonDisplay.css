@@ -6,3 +6,8 @@
 .paypal-buttons>* {
     margin-bottom: 15px;
 }
+
+.paypal-buttons button {
+    width: 225px;
+    border-radius: 5px;
+}

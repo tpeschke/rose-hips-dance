@@ -6,12 +6,13 @@ import './PayPalButtonDisplay.css'
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import axios from "axios";
+import RegisterWithCashAndCheque from "./components/RegisterWithCashAndCheque";
 
 interface Props {
     classes: ClassInterface[],
     canSubmit: boolean,
     registrationInfo: {
-        firstName: string | null, secondName: string | null, phoneNumber: string | null, email: string | null, address: string | null, classes: ClassInterface[], hasAgreed: boolean, recommendation: string | null
+        firstName: string | null, lastName: string | null, phoneNumber: string | null, email: string | null, classes: ClassInterface[], hasAgreed: boolean, recommendation: string | null
     }
 }
 
@@ -50,52 +51,56 @@ export default function PayPalButtonsDisplay({ classes, canSubmit, registrationI
         }
     ]
 
-    const onApproveAndRerouteOnSuccess = async (inputData: OnApproveDataOneTimePayments): Promise<void> => {
+    const onApproveAndRerouteOnSuccess = async (inputData: OnApproveDataOneTimePayments, hasPaid: boolean): Promise<void> => {
         const result = await onApprove(inputData)
         if (result) {
-            const { status } = await axios.post('/api/register', {
-                ...registrationInfo,
-                classes: registrationInfo.classes.map(({title}) => title),
-                hasPaid: true,
-                amount: total
-            })
-
-            switch (status) {
-                case 201:
-                    toast.success("You're Registered!")
-                    break;
-                default:
-                    toast.info(`Status: ${status}`)
-            }
-            router.push('/classes/welcome')
+            approvedWithoutPaying(hasPaid)
         }
+    }
+
+    const approvedWithoutPaying = async (hasPaid: boolean) => {
+        const { status } = await axios.post('/api/register', {
+            ...registrationInfo,
+            classes: registrationInfo.classes.map(({ title }) => title),
+            hasPaid,
+            amount: total
+        })
+
+        switch (status) {
+            case 201:
+                toast.success("You're Registered!")
+                break;
+            default:
+                toast.info(`Status: ${status}`)
+        }
+        router.push('/classes/welcome')
     }
 
     return (
         <div className="paypal-buttons">
             <PayPalProvider
                 clientId={clientId}
-                components={["paypal-payments", "venmo-payments", 'paypal-guest-payments']}
+                components={["paypal-payments", "venmo-payments"]}
                 pageType="checkout"
             >
                 <PayPalOneTimePaymentButton
                     createOrder={() => createOrder(cart)}
-                    onApprove={onApproveAndRerouteOnSuccess}
+                    onApprove={(inputData: OnApproveDataOneTimePayments) => onApproveAndRerouteOnSuccess(inputData, true)}
                     presentationMode={'auto'}
                     disabled={!canSubmit}
                 />
                 <VenmoOneTimePaymentButton
                     createOrder={() => createOrder(cart)}
-                    onApprove={onApproveAndRerouteOnSuccess}
+                    onApprove={(inputData: OnApproveDataOneTimePayments) => onApproveAndRerouteOnSuccess(inputData, true)}
                     presentationMode={'auto'}
                     disabled={!canSubmit}
                 />
-                <PayPalGuestPaymentButton
-                    createOrder={() => createOrder(cart)}
-                    onApprove={onApproveAndRerouteOnSuccess}
-                    disabled={!canSubmit}
-                />
             </PayPalProvider>
+
+            <RegisterWithCashAndCheque
+                disabled={!canSubmit}
+                approvedWithoutPaying={approvedWithoutPaying}
+            />
         </div>
     )
 }
