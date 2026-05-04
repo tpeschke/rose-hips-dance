@@ -10,6 +10,8 @@ Info I need from T
 
 ------ MVP Done ------
 
+cd /var/www
+
 About
     Reroute "Learn More" on Home page to this page after its up
     Mobile
