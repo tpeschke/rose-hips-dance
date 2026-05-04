@@ -10,7 +10,7 @@ Info I need from T
 
 ------ MVP Done ------
 
-cd /var/www
+cd /var/www on DigitalOcean
 
 About
     Reroute "Learn More" on Home page to this page after its up
