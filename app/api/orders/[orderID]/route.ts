@@ -60,7 +60,7 @@ interface Request {
     }
 }
 
-export async function GET(req: NextRequest, { params }: { params: { orderID: string } }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ orderID: string }> }) {
     try {
         const { orderID } = await params;
         const response = await captureOrder(orderID);
