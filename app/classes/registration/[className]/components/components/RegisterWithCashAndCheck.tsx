@@ -6,7 +6,7 @@ interface Props {
     approvedWithoutPaying: (hasPaid: boolean) => void
 }
 
-export default function RegisterWithCashAndCheque({ disabled, approvedWithoutPaying }: Props) {
+export default function RegisterWithCashAndCheck({ disabled, approvedWithoutPaying }: Props) {
     const [showWarning, setShowWarning] = useState(false)
 
     if (!showWarning) {
@@ -15,13 +15,13 @@ export default function RegisterWithCashAndCheque({ disabled, approvedWithoutPay
             onClick={_ => setShowWarning(true)}
             disabled={disabled}
         >
-            Register with Cash or Cheque
+            Register with Cash or Check
         </button>
     }
 
     return (
         <>
-            <p className="warning">The Cash or Cheque is due at the first class. If you're playing with Cash, you must bring the exact amount.</p>
+            <p className="warning">The Cash or Check is due at the first class. If you're playing with Cash, you must bring the exact amount.</p>
             <button
                 className={`${lemonade.className} antialiased gold`}
                 onClick={_ => approvedWithoutPaying(false)}

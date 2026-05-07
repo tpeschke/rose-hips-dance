@@ -6,7 +6,7 @@ import './PayPalButtonDisplay.css'
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import axios from "axios";
-import RegisterWithCashAndCheque from "./components/RegisterWithCashAndCheque";
+import RegisterWithCashAndCheck from "./components/RegisterWithCashAndCheck";
 
 interface Props {
     classes: ClassInterface[],
@@ -103,7 +103,7 @@ export default function PayPalButtonsDisplay({ classes, canSubmit, registrationI
                 />
             </PayPalProvider>
 
-            <RegisterWithCashAndCheque
+            <RegisterWithCashAndCheck
                 disabled={!canSubmit}
                 approvedWithoutPaying={approvedWithoutPaying}
             />
